@@ -18,6 +18,18 @@ Tecnologias a utilizar:
 Base de datos a utilizar:
 -MySQL
 
+Base de datos:
+Antes de iniciar primeramente deberemos de crear u ejecutar la base de datos, Laravel tiene internamente un mini "github" en el cual almacenara todos los cambios que se ha hecho a dicha base, para ello deberemos de ingresar a la consola o terminal (por ejemplo PowerShell) y ejecutaremos el siguiente comando (ya asegurandonos previamente de estar dentro de nuestro proyecto laravel 'cd C:\"ruta de Docuentos"\GitHub\sistema\proyecto-laravel') 
+
+Aqui hay una pequeña lista de los diferentes comandos que posee 'migrate':
+'php artisan migrate' -> Ejecuta todas las migraciones pendientes y aplica los cambios al esquema de la base de datos.
+'php artisan make:migration nombre_de_la_migracion(por ejemplo: create_users_table)' ->  Crea un nuevo archivo de migración en el directorio.
+'php artisan migrate:rollback' -> Deshace la última migración aplicada.
+'php artisan migrate:reset' -> Deshace todas las migraciones aplicadas.
+'php artisan migrate:fresh' -> Elimina todas las tablas y ejecuta todas las migraciones nuevamente.
+'php artisan migrate:refresh' -> Deshace y vuelve a aplicar todas las migraciones.
+'php artisan migrate:status' -> Muestra el estado actual de las migraciones (aplicadas o pendientes).
+
 ¿Como inicializar el proyecto?
 Primero que nada abriremos nuestro repositorio alojado en github, (Por ejemplo dentro de la Carpeta 'GitHub' que se encuentra en Documentos) accedemos a nuestra carpeta
 donde se encuentra el proyecto... ¡¡Importante!! todo esto lo debemos de ejecutar DENTRO DE NUESTRO PROYECTO DE LARAVEL, por ejemplo si tengo mi repositorio con 
@@ -47,4 +59,18 @@ Todo lo anterior es para ahorrarse activar una linea de comando y si es usuario 
 }
 
 Ambas alternativas deberas de activar siempre tu gestor de base de datos preferida, en nuestro caso sera MySQL.
+
+NOTA: Si quieres admiistrar la base de datoso ver sus cambios deberas de hacerlo desde MySQL.
+
+Utilidades o comandos de Laravel:
+'php artisan make:model NombreDelModelo' -> Crea un nuevo modelo en la carpeta app/Models. Si deseas generar también una migración para la tabla asociada, puedes agregar la opción -m al comando, por ejemplo 'php artisan make:model NombreDelModelo -m'.
+'php artisan make:controller NombreDelControlador' -> Crea un nuevo controlador en la carpeta app/Http/Controllers.
+'php artisan make:factory NombreDeLaFactory' ->  Crea una nueva factory para generar datos de prueba.
+'php artisan make:seeder NombreDelSeeder' -> Crea un nuevo seeder para poblar la base de datos con datos de prueba.
+'php artisan key:genera' -> Genera una nueva clave de aplicación en el archivo .env.
+'php artisan optimize' -> Optimiza el rendimiento de la aplicación al compilar rutas y vistas.
+'php artisan route:list' -> Muestra una lista de todas las rutas registradas en la aplicación.
+'php artisan make:controller NombreDelControlador --resource' -> Crea un controlador con métodos para las operaciones CRUD (create, read, update, delete). 
+'php artisan make:model NombreControlador -mcr' -> Similar a los anteriores, pero este creo el modelo(m), controlador(c) y los recursos(r) de una misma vez
+
 
