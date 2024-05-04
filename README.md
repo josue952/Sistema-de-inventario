@@ -61,8 +61,8 @@ NOTA: Si quieres admiistrar la base de datoso ver sus cambios deberas de hacerlo
 Utilidades o comandos de Laravel:  
 'php artisan make:model NombreDelModelo' -> Crea un nuevo modelo en la carpeta app/Models. Si deseas generar también una migración para la tabla asociada, puedes agregar la opción -m al comando, por ejemplo 'php artisan make:model NombreDelModelo -m'.  
 'php artisan make:controller NombreDelControlador' -> Crea un nuevo controlador en la carpeta app/Http/Controllers.  
-'php artisan make:factory NombreDeLaFactory' ->  Crea una nueva factory para generar datos de prueba.  
-'php artisan make:seeder NombreDelSeeder' -> Crea un nuevo seeder para poblar la base de datos con datos de prueba.  
+'php artisan make:factory NombreDeLaFactory' -> Crea una nueva factory para generar datos de prueba.  
+'php artisan make:seeder NombreDelSeeder' -> Crea un nuevo seeder para poblar la base de datos con datos de prueba.   
 'php artisan key:genera' -> Genera una nueva clave de aplicación en el archivo .env.  
 'php artisan optimize' -> Optimiza el rendimiento de la aplicación al compilar rutas y vistas.  
 'php artisan route:list' -> Muestra una lista de todas las rutas registradas en la aplicación.  
