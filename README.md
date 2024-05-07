@@ -10,13 +10,20 @@ Principales funciones que contendra nuestro sistema de inventario:
 -Notificaciones y alertas.  
 
 Tecnologias a utilizar:  
--Lenguajes: PHP  
+-Lenguajes: PHP 8.1
 -Frameworks: Laravel  
--Librerias: Composer   
+-Librerias: Composer, npm
 -Utilidades: Tailwind  
 
 Base de datos a utilizar:  
 -MySQL  
+
+ANTES QUE NADA!!!   
+Es muy probable que en sus sistemas tengan una version distinta de php, por lo tanto eso significara que habran problemas para ejecutar los codigos necesarios para levantar los servidores (Primera alternativa para inicializar el proyecto), por lo tanto iremos a nuestro cmd y ejecutaremos "php -v" para saber que version de php estamos utilizando, en este proyecto estamos utilizando php 8.1... En caso que sea una version distinta a esta, tendremos 2 alternativas   
+Actualizar php (No recomendado por su dificultad) y cambiar las configuraciones en "composer.json" en la parte  de "require" editaremos la version de php que tenga, por ejemplo si tiene "^8.1" y nuestra version de php es 8.2 lo cambiaremos por "^8.2".   
+Una vez realizado esto, nos iremos a nuestra terminal donde tenemos alojado nuestro proyecto de laravel ('C:\"ruta de Docuentos"\GitHub\sistema\proyecto-laravel') y ejecutaremos el siguiente comando 'composer install', si hicimos todo correcto no nos saldra ningun error, todo esto se debera de hacer siempre y cuando nos de un error a la hora de levantar el server con 'php artisan serve' 
+
+--pendiente de hacer en caso que falle el npm
 
 Base de datos:  
 Antes de iniciar primeramente deberemos de crear u ejecutar la base de datos, Laravel tiene internamente un mini "github" en el cual almacenara todos los cambios que se ha hecho a dicha base, para ello deberemos de ingresar a la consola o terminal (por ejemplo PowerShell) y ejecutaremos el siguiente comando (ya asegurandonos previamente de estar dentro de nuestro proyecto laravel 'cd C:\"ruta de Docuentos"\GitHub\sistema\proyecto-laravel') 
