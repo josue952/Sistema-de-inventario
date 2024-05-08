@@ -1,0 +1,22 @@
+# Usar la imagen oficial de Node.js
+FROM node:18
+
+# Configurar directorio de trabajo
+WORKDIR /app
+
+# Copiar archivos de definición de dependencias
+COPY package*.json ./
+COPY vite.config.js .
+
+# Instalar dependencias
+RUN npm install
+RUN ls node_modules/.bin
+
+# Copiar el resto del código fuente
+COPY . .
+
+# Exponer el puerto que utiliza Vite
+EXPOSE 3000
+
+# Comando para iniciar Vite
+CMD ["npm", "run", "dev"]
