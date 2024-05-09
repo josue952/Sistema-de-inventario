@@ -5,7 +5,7 @@ FROM node:18
 WORKDIR /app
 
 # Copiar archivos de definición de dependencias
-COPY package*.json ./
+COPY package.json package-lock.json ./
 COPY vite.config.js .
 
 # Instalar dependencias
@@ -18,5 +18,8 @@ COPY . .
 # Exponer el puerto que utiliza Vite
 EXPOSE 3000
 
-# Comando para iniciar Vite
+# Iniciar el servidor de desarrollo
 CMD ["npm", "run", "dev"]
+
+
+
