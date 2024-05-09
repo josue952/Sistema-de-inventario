@@ -1,26 +1,23 @@
-# Usar la imagen oficial de PHP con Apache
+# Dockerfile
 FROM php:8.1-apache
 
-# Instalar extensiones de PHP necesarias para Laravel
-RUN docker-php-ext-install pdo pdo_mysql mysqli
+# Instalar extensiones necesarias
+RUN docker-php-ext-install pdo_mysql
 
-# Habilitar mod_rewrite para Apache (útil para Laravel)
+# Habilitar mod_rewrite para Laravel
 RUN a2enmod rewrite
 
-# Instalar Composer
-COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
+# Configurar ServerName para Apache
+RUN echo "ServerName localhost" > /etc/apache2/conf-available/fqdn.conf && a2enconf fqdn
 
-# Copiar la aplicación al contenedor
-COPY . /var/www/html
-WORKDIR /var/www/html
+# Cambiar el directorio raíz del documento a la carpeta public
+RUN sed -i 's!/var/www/html!/var/www/html/public!g' /etc/apache2/sites-available/000-default.conf
 
-# Copiar la configuracoón de Apache (server name)
-COPY 000-default.conf /etc/apache2/sites-available/000-default.conf
+# Copiar la aplicación existente al contenedor
+COPY . /var/www/html/
 
-# Instalar dependencias de PHP
-RUN composer install --no-interaction --prefer-dist --optimize-autoloader
+# Cambiar el propietario de todos los archivos a www-data
+RUN chown -R www-data:www-data /var/www/html
 
-# Dar permisos adecuados
-RUN chown -R www-data:www-data /var/www/html \
-    && chmod -R 755 /var/www/html/storage /var/www/html/bootstrap/cache
-
+# Exponer el puerto 80
+EXPOSE 80
