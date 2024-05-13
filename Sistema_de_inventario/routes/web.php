@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +16,14 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     //Regresa o redirige a la vista Login
-    return view('Login');
+    return view('auth.login');
+});
+
+Route::resource('dashboard',DashboardController::class);
+
+Auth::routes();
+Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+
+Route::group(['middleware'=>'auth'],function(){
+    Route::get('/', [DashboardController::class,'index'])->name('dashboard');
 });
