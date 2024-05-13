@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+//Este controlador sirve para la autenticación de los usuarios, tanto para iniciar sesion, como para cerrar sesión.
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
