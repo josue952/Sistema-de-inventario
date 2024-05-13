@@ -12,15 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('Usuarios', function (Blueprint $table) {
-            $table->id();
+            $table->id('idUsuario');
             $table->string('Nombre');
             $table->string('Apellido');
             $table->string('Email')->unique();
             $table->string('DUI')->unique();
+            $table->enum('Rol', ['Administrador', 'Empleado']);
             $table->timestamp('email_verified_at')->nullable();
             $table->string('Contraseña');
             $table->rememberToken();
             $table->timestamps();
+
+            // Restricción UNIQUE para 'Nombre', 'Apellido', 'Email' y 'DUI'
+            $table->unique(['Nombre', 'Apellido', 'Email', 'DUI']);
         });
     }
 
