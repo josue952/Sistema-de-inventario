@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    image: sistema-de-inventario
+    image: backend
     container_name: sistema-de-inventario
     restart: unless-stopped
     tty: true

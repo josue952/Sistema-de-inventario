@@ -19,5 +19,13 @@ COPY . /var/www/html/
 # Cambiar el propietario de todos los archivos a www-data
 RUN chown -R www-data:www-data /var/www/html
 
+# Instalar Node.js y npm
+RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash -
+RUN apt-get install -y nodejs
+    
+# Verificar la instalación
+RUN node -v
+RUN npm -v
+
 # Exponer el puerto 80
 EXPOSE 80
