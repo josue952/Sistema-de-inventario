@@ -11,20 +11,20 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('Usuarios', function (Blueprint $table) {
-            $table->id('idUsuario');
-            $table->string('Nombre');
-            $table->string('Apellido');
-            $table->string('Email')->unique();
-            $table->string('DUI')->unique();
-            $table->enum('Rol', ['Administrador', 'Empleado']);
+        Schema::create('users', function (Blueprint $table) {
+            $table->id('id');
+            $table->string('Nombre')->nullable();
+            $table->string('Apellido')->nullable();
+            $table->string('email')->unique();
+            $table->string('DUI')->unique() ->nullable();
+            $table->enum('Rol', ['Administrador', 'Empleado']) ->nullable();
             $table->timestamp('email_verified_at')->nullable();
-            $table->string('Contraseña');
+            $table->string('password');
             $table->rememberToken();
             $table->timestamps();
 
             // Restricción UNIQUE para 'Nombre', 'Apellido', 'Email' y 'DUI'
-            $table->unique(['Nombre', 'Apellido', 'Email', 'DUI']);
+            $table->unique(['Nombre', 'Apellido', 'email', 'DUI']);
         });
     }
 
