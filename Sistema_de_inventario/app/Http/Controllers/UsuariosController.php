@@ -13,6 +13,7 @@ class UsuariosController extends Controller
     public function index()
     {
         //
+        return view('usuarios.index');
     }
 
     /**
@@ -21,6 +22,7 @@ class UsuariosController extends Controller
     public function create()
     {
         //
+        return view('usuarios.Create');
     }
 
     /**

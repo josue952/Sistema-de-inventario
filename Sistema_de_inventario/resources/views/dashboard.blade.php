@@ -30,8 +30,13 @@
             Panel de control
             </a>
         </li>
+        <!--"Boton" administracion que despliega sub-botones u opciones-->
         <li>
-            <a href="#" class="flex items-center px-6 py-2 text-gray-200 hover:bg-gray-700">
+            <button
+            type="button"
+            class="flex items-center px-6 py-2 text-gray-200 hover:bg-gray-700 w-full"
+            onclick="AdminToggleDropdown()"
+            >
             <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"
@@ -44,12 +49,43 @@
                 stroke-linejoin="round"
                 class="mr-3 h-5 w-5"
             >
-                <circle cx="7.5" cy="15.5" r="5.5"></circle>
-                <path d="m21 2-9.6 9.6"></path>
-                <path d="m15.5 7.5 3 3L22 7l-3-3"></path>
+                <path d="M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z"></path>
+                <path d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"></path>
+                <path d="M12 2v2"></path>
+                <path d="M12 22v-2"></path>
+                <path d="m17 20.66-1-1.73"></path>
+                <path d="M11 10.27 7 3.34"></path>
+                <path d="m20.66 17-1.73-1"></path>
+                <path d="m3.34 7 1.73 1"></path>
+                <path d="M14 12h8"></path>
+                <path d="M2 12h2"></path>
+                <path d="m20.66 7-1.73 1"></path>
+                <path d="m3.34 17 1.73-1"></path>
+                <path d="m17 3.34-1 1.73"></path>
+                <path d="m11 13.73-4 6.93"></path>
             </svg>
-            Accesos
-            </a>
+            Administración
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="ml-auto h-5 w-5"
+            >
+                <path d="m6 9 6 6 6-6"></path>
+            </svg>
+            </button>
+            <!--Submenú oculto que se mostrará al hacer click-->
+            <ul id="adminDropdown" class="hidden flex-col pl-6 px-8">
+                <li><a href="{{ route('usuarios') }}" class="px-6 py-1 text-gray-200 hover:bg-gray-900">Usuarios</a></li>
+                <li><a href="#" class="px-6 py-1 text-gray-200 hover:bg-gray-900">Sucursales</a></li>
+                <li><a href="#" class="px-6 py-1 text-gray-200 hover:bg-gray-900">Categorías</a></li>
+            </ul>
         </li>
         <li>
             <a href="#" class="flex items-center px-6 py-2 text-gray-200 hover:bg-gray-700">
@@ -239,3 +275,14 @@
     </div>
 </div>
 @endsection
+
+<script>
+function AdminToggleDropdown() {
+    var dropdown = document.getElementById("adminDropdown");
+    if (dropdown.style.display === "block") {
+        dropdown.style.display = "none";
+    } else {
+        dropdown.style.display = "block";
+    }
+}
+</script>
